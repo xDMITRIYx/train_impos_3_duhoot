@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Duhot</title>
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<div class="row-flex">
+					<div class="logo">
+					<img src="img/01_header_logo.png" alt="logo">
+				</div>
+				<nav>
+					<ul>
+						<li><a href="">Reality</a></li>
+						<li><a href="">Living</a></li>
+						<li><a href="">Education</a></li>
+						<li><a href="">Entertaiment</a></li>
+						<li><a href="">Mobility</a></li>
+					</ul>
+				</nav>
+				<div class="find-login">
+					<form action="action.php">
+						<div class="find">
+							<input type="button" name='find'>
+							<input type="search" name='search' placeholder="SEARCH">
+						</div>
+						<input type="button" name='login' value='login'>
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section class="search">
+			<div class="wrapper">
+				<div class="row-flex">
+					<form action="action.php" class="form-search">
+						<p>What a you looking for?</p>
+						<select name="city" class="city">
+							<option value="Dubai">Dubai</option>
+							<option value="Amsterdam">Amsterdam</option>
+							<option value="Los-Angeles">Los-Angeles</option>
+						</select>
+						<select name="target" class="target">
+							<option value="Education">Education</option>
+							<option value="Tourism">Tourism</option>
+							<option value="Work">Work</option>
+						</select>
+						<input type="text" class="keywords" placeholder="Keyword, name, date, ...">
+						<input type="button" class="search-info" value="Search">
+					</form>
+				</div>
+			</div>
+		</section>
+		<section class="filter">
+			<div class="wrapper">
+				<form action="action.php" class="form-filter">
+					<div class="popularity">
+						<input type="button" name='recomended' value='recomended' class="active">
+						<input type="button" name='latest' value="latest" class="active">
+						<input type="button" name="hightlights" value="hightlights" class="active">
+					</div>
+					<div class="location">
+						<select name="city" class="city">
+							<option value="Dubai">Dubai</option>
+							<option value="Amsterdam">Amsterdam</option>
+							<option value="Los-Angeles">Los-Angeles</option>
+						</select>
+						<input type="button" name="map" value="show map">
+					</div>
+					<div class="targets-tour">
+						<input type="button" name="filter" value="filter" class="active">
+						<input type="button" name="home" class="active">
+						<input type="button" name="people" class="active">
+						<input type="button" name="education" class="active">
+						<input type="button" name="music" class="active">
+						<input type="button" name="transport" class="active">
+					</div>
+				</form>
+			</div>
+		</section>
+		<section class="slider">
+			<div class="wrapper">
+				<div class="row-flex">
+					<div class="item normal home">
+						<img src="img/slider/01_room.jpg" alt="room" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">2 bedroom house for rent in Dubai</p>
+						<p class="adress">vision agency</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(365)</span></div>
+					</div><div class="item normal music">
+						<img src="img/slider/02_gerl.jpg" alt="gerl" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">Beach party festival 2014</p>
+						<p class="adress">long beach</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(1165)</span></div> 
+					</div>
+					<div class="item normal transport">
+						<img src="img/slider/03_room2.jpg" alt="room" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">Aliquam quis pulvinar purus</p>
+						<p class="adress">bus trans</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(365)</span></div>
+					</div>
+					<div class="item normal home">
+						<img src="img/slider/01_room.jpg" alt="room" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">4 bedroom house for rent in Dubai</p>
+						<p class="adress">reality agency</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(165)</span></div>
+					</div>					
+					<div class="item large home">
+						<img src="img/slider/04_agency.jpg" alt="agency" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">2 bedroom house for rent in Dubai</p>
+						<p class="adress">vision agency</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(365)</span></div>
+						<div class="coment">
+							<div class="man"><img src="img/slider/lusy.jpg" alt="man"></div>
+							<div class="text">
+								<div class="stars"><img src="img/04_slider_stars.png" alt="stars"></div>
+								<p class="name">Lusy-P</p>
+								<p class="opinion">“Aliquam quis pulvinar purus. Etiam cursus ipsum quis enim faucibus, quis posuere orci ornare. Duis mattis sagittis fringilla.” ...read more</p>
+							</div>
+						</div>
+					</div>
+					<div class="item large music">
+						<img src="img/slider/05_club.jpg" alt="club" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">Mega rest in club</p>
+						<p class="adress">skybox club</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(1365)</span></div>
+						<div class="coment">
+							<div class="man"><img src="img/slider/peter.jpg" alt="man"></div>
+							<div class="text">
+								<div class="stars"><img src="img/04_slider_stars.png" alt="stars"></div>
+								<p class="name">PETER-145</p>
+								<p class="opinion">“Aliquam quis pulvinar purus. Etiam cursus ipsum quis enim faucibus, quis posuere orci ornare. Duis mattis sagittis fringilla.” ...read more</p>
+							</div>
+						</div>
+					</div>
+					<div class="item normal home">
+						<img src="img/slider/01_room.jpg" alt="room" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">2 bedroom house for rent in Dubai</p>
+						<p class="adress">vision agency</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(365)</span></div>
+					</div>
+					<div class="item normal music">
+						<img src="img/slider/02_gerl.jpg" alt="gerl" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">Beach party festival 2014</p>
+						<p class="adress">long beach</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(1165)</span></div>
+					</div>					
+					<div class="item normal transport">
+						<img src="img/slider/03_room2.jpg" alt="room" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">Aliquam quis pulvinar purus</p>
+						<p class="adress">bus trans</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(365)</span></div>
+					</div>
+					<div class="item normal home">
+						<img src="img/slider/01_room.jpg" alt="room" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">2 bedroom house for rent in Dubai</p>
+						<p class="adress">vision agency</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(365)</span></div>
+					</div>
+					<div class="item large music">
+						<img src="img/slider/05_club.jpg" alt="club" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">Mega rest in club</p>
+						<p class="adress">skybox club</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(1365)</span></div>
+						<div class="coment">
+							<div class="man"><img src="img/slider/peter.jpg" alt="man"></div>
+							<div class="text">
+								<div class="stars"><img src="img/04_slider_stars.png" alt="stars"></div>
+								<p class="name">PETER-145</p>
+								<p class="opinion">“Aliquam quis pulvinar purus. Etiam cursus ipsum quis enim faucibus, quis posuere orci ornare. Duis mattis sagittis fringilla.” ...read more</p>
+							</div>
+						</div>
+					</div>
+					<div class="item normal home">
+						<img src="img/slider/01_room.jpg" alt="room" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">2 bedroom house for rent in Dubai</p>
+						<p class="adress">vision agency</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(365)</span></div>
+					</div>
+					<div class="item normal music">
+						<img src="img/slider/02_gerl.jpg" alt="gerl" class="photo">
+						<div class="type-img"><div class="line"></div><div class="ico"></div></div>
+						<p class="info">Beach party festival 2014</p>
+						<p class="adress">long beach</p>
+						<div class="like-stars"><img src="img/04_slider_stars.png" alt="stars" class="stars"><span class="like">(1165)</span></div>
+					</div>	
+					<div class="load-more">Load more &rarr;</div>	
+				</div>
+			</div>
+		</section>
+		<section class="offer">
+			<div class="wrapper">
+				<div class="row">
+					<p class="what">What can DuHoot offer to you?</p>
+					<p class="grey">Ebam cursis ipsum quis enim faucibus</p>
+				</div>
+				<div class="row-flex">
+					<form action="action.php" class="green-filter">
+						<div class="wrap-imp"><input type="button" name="home" class="active"></div>
+						<div class="wrap-imp"><input type="button" name="people" class="active"></div>
+						<div class="wrap-imp"><input type="button" name="education" class="active"></div>
+						<div class="wrap-imp"><input type="button" name="music" class="active"></div>
+						<div class="wrap-imp"><input type="button" name="transport" class="active"></div>
+					</form>
+				</div>
+				<h2>Reality</h2>
+				<div class="row-flex">
+					<div class="reality">
+						<div class="wrap-img"><img src="img/05_offer_flash2.png" alt="flash"></div>
+						<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.</p>
+					</div>
+					<div class="reality">
+						<div class="wrap-img"><img src="img/05_offer_leaf2.png" alt="leaf"></div>
+						<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida tellus in purus pharetra, vel dignissim mauris viverra. Maecenas vitae risus est. In hendrerit, massa at.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div class="wrapper">
+			<div class="col-flex">
+				<h2>Subscriber to our newsletter</h2>
+				<form action="action.php" class="email">
+					<input type="text" placeholder="your@email.com">
+					<input type="button" value="subscribe">
+				</form>
+				<div class="foot-links">
+					<div class="link">
+						<h3>Ipsum quis</h3>
+						<a href="">Aliquam quis</a>
+						<a href="">Pulvinar puris</a>
+						<a href="">Etiam cursis</a>
+						<a href="">Ipsum quis</a>
+						<a href="">Enim faucibus</a>
+					</div>
+					<div class="link l2">
+						<h3>Ipsum quis</h3>
+						<a href="">Aliquam quis</a>
+						<a href="">Pulvinar puris</a>
+						<a href="">Etiam cursis</a>
+						<a href="">Ipsum quis</a>
+						<a href="">Enim faucibus</a>
+					</div>
+					<div class="soc">
+						<h3>Follow us</h3>
+						<div class="soc-ico">
+							<a href=""><img src="img/06_footer_fb.png" alt="facebook"></a>
+							<a href=""><img src="img/06_footer_tw.png" alt="twitter"></a>
+							<a href=""><img src="img/06_footer_ggl.png" alt="google"></a>
+							<a href=""><img src="img/06_footer_yt.png" alt="youtube"></a>
+						</div>
+						<p>Coptright &copy; All rights reserved</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script>
+		window.onload = function(e){
+			(function(){
+				let deactElemFilter = document.querySelectorAll('.active');
+				for(let i = 0; i < deactElemFilter.length; i++){
+					deactElemFilter[i].onclick = function(){
+						this.classList.toggle('deactive');
+					}
+				}
+			})();
+		}
+	</script>
+</body>
+</html>

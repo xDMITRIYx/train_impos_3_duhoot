@@ -1,0 +1,181 @@
+$font-size: 14px; //размер шрифта
+$line-height:20px; //средняя линия шрифта
+$base-width:1170px; //базовая ширина макета
+$columns:12; //количество колонок
+$breakpoints: (
+	lg:1920px,
+	md:1200px,
+	sm:992px,
+	ssm:760px,
+	xs:560px,
+	xxs:380px
+); //большой экран / (1100 || 1200)до - средний экран / (780 || 992)до - малый / (560 || 768) до - очень малый
+$margin_offset:15px; //отступы колонок
+$box-sizing:border-box;//размеры блоков
+body{
+	font-size: $font-size;
+	line-height: $line-height;
+}
+//сброс стилей
+@mixin reset(){
+    body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,input,textarea,p,blockquote,th,td{
+        margin: 0;
+        padding: 0;
+    }
+    table{
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    fieldset,img,abbr{
+        border: 0;
+    }
+    address,caption,cite,code,dfn,em,strong,th,var{
+        font-style: normal;
+        font-weight: normal;
+    }
+    ul li{
+        list-style: none;
+    }
+    caption,th{
+        text-align: left;
+    }
+    h1,h2,h3,h4,h5,h6{
+        font-size: 100%;
+        font-weight: normal;
+    }
+    sup{
+        vertical-align: text-top;
+    }
+    sub{
+        vertical-align: text-bottom;
+    }
+    input,textarea,select{
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+    legend{
+        color: #000;
+    }
+    article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main{
+        display: block;
+    }
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+}
+//обертка задает максимальную ширину макета и отступы паддинги
+@mixin wrapper ($base-width:$base-width, $padding:15px, $box-sizing:border-box){
+	max-width: $base-width;
+	margin: 0 auto;
+	padding: 0 $padding;
+	box-sizing: $box-sizing;
+	@content;
+}
+//внутренние обертки под флексы с отрицательными маргинами
+@mixin row-flex{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: #{-$margin_offset};
+	margin-right: #{-$margin_offset};
+	@content;
+}
+//внутренняя обертка для вертикального флекса
+@mixin col-flex{
+	display: flex;
+	flex-direction: column;
+	margin-left: #{-$margin_offset};
+	margin-right: #{-$margin_offset};
+}
+//модуль с стандартными параметрами (отступы)
+@mixin col-prop($margin_offset:$margin_offset){
+	box-sizing: border-box;
+    margin-left: $margin_offset;
+    margin-right: $margin_offset;
+    word-wrap: break-word;
+}
+//размеры элементов на флекс-базисах @include fmod(lg, 4) || @include fmod(lg, 3, 9, 30px)
+//(размер экрана(lg||md||sm||xs); необх. кол-во колонок, кол-во колонок макета(необяз.); размер отступа(необяз.))
+@mixin fcol($breakpoint, $i, $cols:$columns, $margin_offset:$margin_offset){ //генератор свойств
+	@if $cols == 0 {$cols:$columns}
+	@if $margin_offset == 0 {$margin_offset:0px}
+		@if map-has-key($breakpoints, $breakpoint) {
+			@media screen and ( max-width: #{map-get($breakpoints, $breakpoint)}){
+				@include col-prop($margin_offset);
+				@if $margin_offset == 'auto' {$margin_offset:0px}
+				$w:(#{$i * 100 / $cols}) + '%';
+				$m_off:$margin_offset*2;
+				flex-basis: calc(#{$w} - #{$m_off});
+			}
+		}
+	@content;
+}
+//размеры элементов на width @include fmod(lg, 4) || @include fmod(lg, 3, 9, 30px)
+//(размер экрана(lg||md||sm||xs); необх. кол-во колонок, кол-во колонок макета(необяз.); размер отступа(необяз.))
+@mixin wcol($breakpoint, $i, $cols:$columns, $margin_offset:$margin_offset){ //генератор свойств
+	@if $cols == 0 {$cols:$columns}
+	@if $margin_offset == 0 {$margin_offset:0px}
+		@if map-has-key($breakpoints, $breakpoint) {
+			@media screen and ( max-width: #{map-get($breakpoints, $breakpoint)}){
+				@include col-prop($margin_offset);
+				@if $margin_offset == 'auto' {$margin_offset:0px}
+				$w:(#{$i * 100 / $cols}) + '%';
+				$m_off:$margin_offset*2;
+				width: calc(#{$w} - #{$m_off});
+			}
+		}
+	@content;
+}
+//отступы margin @include fmod(left, lg, 4) || @include fmod(left, lg, 3, 9, 30px)
+//(направленеи отступа(left||right); размер экрана(lg||md||sm||xs); необх. кол-во колонок, кол-во колонок макета(необяз.); размер отступа(необяз.))
+@mixin offset-margin($direction, $breakpoint, $i, $cols:$columns, $margin_offset:$margin_offset){
+	@if $cols == 0 {$cols:$columns}
+	@if $margin_offset == 0 {$margin_offset:0px}
+		@if map-has-key($breakpoints, $breakpoint) {
+				@media screen and ( max-width: #{map-get($breakpoints, $breakpoint)}){
+				$w:(#{$i * 100 / $cols}) + '%';
+			$margin:null;
+			@if $direction == right {$margin:margin-right}
+			@if $direction == left {$margin:margin-left}
+				#{$margin}: calc(#{$w} + #{$margin_offset});
+
+			}
+		}
+	@content;
+}
+//отступы padding @include fmod(left, lg, 4) || @include fmod(left, lg, 3, 9, 30px)
+//(направленеи отступа(left||right); размер экрана(lg||md||sm||xs); необх. кол-во колонок, кол-во колонок макета(необяз.); размер отступа(необяз.))
+@mixin offset-padding($direction, $breakpoint, $i, $cols:$columns, $margin_offset:$margin_offset){
+	@if $cols == 0 {$cols:$columns}
+	@if $margin_offset == 0 {$margin_offset:0px}
+		@if map-has-key($breakpoints, $breakpoint) {
+			@media screen and ( max-width: #{map-get($breakpoints, $breakpoint)}){
+				$w:(#{$i * 100 / $cols}) + '%';
+				$padding:null;
+			@if $direction == right {$padding:padding-right}
+			@if $direction == left {$padding:padding-left}
+				#{$padding}: calc(#{$w} + #{$margin_offset});
+		}
+	}
+	@content;
+}
+// сокращенная запись медиа-запроса div{@include media(lg) {margin:10px; float:left;};}
+// итого @media screen and (max-width: 1920px) { div { margin: 10px; float: left; } }
+@mixin media($breakpoint){
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media screen and ( max-width: #{map-get($breakpoints, $breakpoint)}){
+			@content;
+		}
+	}
+}
+//если нужно добавить одно свойство через медиа-запрос
+//div{@include prop(lg, justify-content, center);}
+//итого @media screen and (max-width: 1920px) {div {justify-content: center; } }
+@mixin media-prop($breakpoint, $property, $value) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media screen and ( max-width: #{map-get($breakpoints, $breakpoint)}){
+			#{$property}: #{$value};
+		}
+	}
+}
